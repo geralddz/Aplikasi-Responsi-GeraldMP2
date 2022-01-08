@@ -32,6 +32,9 @@ public class Registrasi extends AppCompatActivity {
             Intent i = new Intent(this, Login.class );
             startActivity(i);
         });
-
+        btrgst.setOnClickListener(v -> {
+            Intent i = new Intent(this, Home.class );
+            startActivity(i);
+        });
     }
 }

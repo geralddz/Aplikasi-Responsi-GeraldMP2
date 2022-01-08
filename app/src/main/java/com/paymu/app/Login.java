@@ -31,7 +31,7 @@ public class Login extends AppCompatActivity {
        });
 
        tvpas1.setOnClickListener(v -> {
-           Intent i = new Intent(Login.this, Recovery.class );
+           Intent i = new Intent(this, Recovery.class );
            startActivity(i);
        });
 

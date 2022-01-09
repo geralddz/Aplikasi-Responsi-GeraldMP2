@@ -34,9 +34,14 @@ public class Home extends AppCompatActivity {
         session = new Session(this);
         setSupportActionBar(toolbar);
 
+        if(session.loggedin()){
+            String name = getIntent().getStringExtra("name");
+            tvnama.setText(name);
+        }
+
         String name = getIntent().getStringExtra("name");
-        session.setLoggedin(true);
         tvnama.setText(name);
+        session.setLoggedin(true);
 
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new FragmentHome()).commit();
         bottomNavigationView.setOnItemSelectedListener(item -> {
@@ -58,7 +63,6 @@ public class Home extends AppCompatActivity {
             }
             assert fragment != null;
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
-
             return true;
         });
     }

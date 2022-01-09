@@ -1,19 +1,27 @@
 package com.paymu.app;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.room.Room;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.util.Patterns;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.paymu.app.Data.DAO.UserDAO;
+import com.paymu.app.Data.Database.UserDatabase;
+import com.paymu.app.Data.Model.UserEntity;
 
 public class Login extends AppCompatActivity {
     TextView tvreg, tvpas1;
     EditText etmail, etpas;
     Button login;
-
+    UserDAO userDAO;
+    private Session session;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,10 +32,29 @@ public class Login extends AppCompatActivity {
         etmail = findViewById(R.id.etEmail);
         etpas = findViewById(R.id.etpass);
         login = findViewById(R.id.btlogin);
+        session = new Session(this);
+        userDAO = Room.databaseBuilder(this, UserDatabase.class, "user.db").allowMainThreadQueries()
+                .build().userDAO();
+
+        if(session.loggedin()){
+            startActivity(new Intent(this,Home.class));
+            finish();
+        }
 
        login.setOnClickListener(v -> {
-           Intent i = new Intent(this, Home.class );
-           startActivity(i);
+           String mail = etmail.getText().toString().trim();
+           String passw = etpas.getText().toString().trim();
+
+           UserEntity userEntity = userDAO.login(mail, passw);
+           if (userEntity != null && Patterns.EMAIL_ADDRESS.matcher(mail).matches()) {
+               Toast.makeText(this, "Login Berhasil", Toast.LENGTH_SHORT).show();
+               session.setLoggedin(true);
+               Intent i = new Intent(this, Home.class);
+               startActivity(i);
+               finish();
+           }else{
+               Toast.makeText(this, "Isikan Email dan Password Dengan Benar", Toast.LENGTH_SHORT).show();
+           }
        });
 
        tvpas1.setOnClickListener(v -> {

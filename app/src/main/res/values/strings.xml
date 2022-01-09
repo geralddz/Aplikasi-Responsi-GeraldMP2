@@ -6,4 +6,5 @@
     <string name="Payment">Payment</string>
     <string name="History">History</string>
     <string name="Setting">Setting</string>
+    <string name="LOGOUT">LOGOUT</string>
 </resources>

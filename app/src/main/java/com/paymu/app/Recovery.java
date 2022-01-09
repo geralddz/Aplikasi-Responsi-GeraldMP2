@@ -44,6 +44,7 @@ public class Recovery extends AppCompatActivity {
             String mail = etmail.getText().toString().trim();
             UserEntity userEntity = userDAO.recovery(mail);
             if (userEntity != null && Patterns.EMAIL_ADDRESS.matcher(mail).matches()) {
+                Toast.makeText(this, "Recovery Berhasil", Toast.LENGTH_SHORT).show();
                 Intent i = new Intent(this, Login.class);
                 startActivity(i);
                 finish();

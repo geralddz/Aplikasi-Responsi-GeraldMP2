@@ -44,12 +44,14 @@ public class Login extends AppCompatActivity {
        login.setOnClickListener(v -> {
            String mail = etmail.getText().toString().trim();
            String passw = etpas.getText().toString().trim();
-
            UserEntity userEntity = userDAO.login(mail, passw);
+
            if (userEntity != null && Patterns.EMAIL_ADDRESS.matcher(mail).matches()) {
-               Toast.makeText(this, "Login Berhasil", Toast.LENGTH_SHORT).show();
                session.setLoggedin(true);
-               Intent i = new Intent(this, Home.class);
+               Toast.makeText(this, "Login Berhasil", Toast.LENGTH_SHORT).show();
+               String name = userEntity.getEmail();
+               Intent i = new Intent(this, Home.class)
+                       .putExtra("name", name);
                startActivity(i);
                finish();
            }else{

@@ -20,15 +20,18 @@
             android:textSize="25sp"
             android:textStyle="bold" />
 
-        <ImageView
-            android:id="@+id/back_icon"
+        <TextView
+            android:id="@+id/tvname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:layout_marginStart="67dp"
+            android:layout_marginStart="50dp"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="70dp"
-            android:src="@drawable/ic_baseline_account_circle_24" />
+            android:layout_marginEnd="115dp"
+            android:drawableTop="@drawable/ic_baseline_account_circle_24"
+            android:text=""
+            android:textColor="@color/black"
+            android:textStyle="bold" />
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar2"

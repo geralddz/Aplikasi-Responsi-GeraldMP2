@@ -25,6 +25,7 @@ public class Registrasi extends AppCompatActivity {
     EditText eteml, etpas, etcpas;
     Button btrgst;
     UserDAO userDAO;
+    private Session session;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,9 +37,14 @@ public class Registrasi extends AppCompatActivity {
         btrgst = findViewById(R.id.btregis);
         back = findViewById(R.id.back_icon);
         titel = findViewById(R.id.title);
-
+        session = new Session(this);
         userDAO = Room.databaseBuilder(this, UserDatabase.class, "user.db").allowMainThreadQueries()
                 .build().userDAO();
+
+        if(session.loggedin()){
+            startActivity(new Intent(this,Home.class));
+            finish();
+        }
 
         titel.setText("Registrasi");
         back.setOnClickListener(v -> {
@@ -61,8 +67,11 @@ public class Registrasi extends AppCompatActivity {
             else if (passw.equals(konfirmasi) && Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
                 UserEntity userEntity = new UserEntity(email, passw);
                 userDAO.Register(userEntity);
+                session.setLoggedin(true);
+                String name = userEntity.getEmail();
                 Toast.makeText(Registrasi.this, "Registrasi Berhasil", Toast.LENGTH_SHORT).show();
-                Intent i = new Intent(this, Home.class );
+                Intent i = new Intent(this, Home.class )
+                        .putExtra("name", name);
                 startActivity(i);;
             }
             else {

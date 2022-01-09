@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,16 +23,22 @@ public class Home extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
     Session session;
     Toolbar toolbar;
-
+    TextView tvnama;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         bottomNavigationView = findViewById(R.id.bottomnav);
         toolbar = findViewById(R.id.toolbar2);
+        tvnama = findViewById(R.id.tvname);
         session = new Session(this);
         setSupportActionBar(toolbar);
 
+        String name = getIntent().getStringExtra("name");
+        session.setLoggedin(true);
+        tvnama.setText(name);
+
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new FragmentHome()).commit();
         bottomNavigationView.setOnItemSelectedListener(item -> {
             Fragment fragment = null;
             switch (item.getItemId()) {

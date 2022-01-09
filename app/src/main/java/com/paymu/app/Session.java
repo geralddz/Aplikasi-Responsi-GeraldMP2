@@ -19,11 +19,6 @@ public class Session {
         editor.commit();
     }
 
-    public void logout() {
-        editor.clear();
-        editor.apply();
-    }
-
     public boolean loggedin(){
         return prefs.getBoolean("loggedInmode", false);
     }

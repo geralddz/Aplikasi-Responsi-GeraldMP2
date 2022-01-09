@@ -6,7 +6,7 @@ import androidx.room.RoomDatabase;
 import com.paymu.app.Data.DAO.UserDAO;
 import com.paymu.app.Data.Model.UserEntity;
 
-@Database(entities = {UserEntity.class},version = 1, exportSchema = false)
+@Database(entities = {UserEntity.class},version = 1)
 public abstract class UserDatabase extends RoomDatabase {
 
     public abstract UserDAO userDAO();

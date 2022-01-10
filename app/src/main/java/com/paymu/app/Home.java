@@ -24,6 +24,7 @@ public class Home extends AppCompatActivity {
     Session session;
     Toolbar toolbar;
     TextView tvnama;
+    @SuppressLint("NonConstantResourceId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +34,7 @@ public class Home extends AppCompatActivity {
         tvnama = findViewById(R.id.tvname);
         session = new Session(this);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         if(session.loggedin()){
             String name = getIntent().getStringExtra("name");

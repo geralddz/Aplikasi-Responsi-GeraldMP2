@@ -14,6 +14,7 @@ import android.widget.Toast;
 import android.widget.Toolbar;
 
 import com.paymu.app.Data.DAO.UserDAO;
+import com.paymu.app.Data.Database.AppUser;
 import com.paymu.app.Data.Database.UserDatabase;
 import com.paymu.app.Data.Model.UserEntity;
 
@@ -38,8 +39,8 @@ public class Registrasi extends AppCompatActivity {
         back = findViewById(R.id.back_icon);
         titel = findViewById(R.id.title);
         session = new Session(this);
-        userDAO = Room.databaseBuilder(this, UserDatabase.class, "user.db").allowMainThreadQueries()
-                .build().userDAO();
+
+        userDAO = AppUser.db.userDAO();
 
         if(session.loggedin()){
             startActivity(new Intent(this,Home.class));

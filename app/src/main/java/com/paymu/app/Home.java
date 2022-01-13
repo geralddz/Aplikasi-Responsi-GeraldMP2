@@ -15,6 +15,8 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.paymu.app.Data.DAO.UserDAO;
+import com.paymu.app.Data.Database.AppUser;
 import com.paymu.app.Fragment.FragmentHistory;
 import com.paymu.app.Fragment.FragmentHome;
 import com.paymu.app.Fragment.FragmentPayment;
@@ -25,6 +27,7 @@ public class Home extends AppCompatActivity {
     Session session;
     Toolbar toolbar;
     TextView tvnama;
+    UserDAO userDAO;
     @SuppressLint("NonConstantResourceId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +44,7 @@ public class Home extends AppCompatActivity {
             String name = getIntent().getStringExtra("name");
             tvnama.setText(name);
         }
-
+        userDAO = AppUser.db.userDAO();
         String name = getIntent().getStringExtra("name");
         tvnama.setText(name);
         session.setLoggedin(true);

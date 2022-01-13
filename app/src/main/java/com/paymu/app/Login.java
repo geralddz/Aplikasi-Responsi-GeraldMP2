@@ -13,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.paymu.app.Data.DAO.UserDAO;
+import com.paymu.app.Data.Database.AppUser;
 import com.paymu.app.Data.Database.UserDatabase;
 import com.paymu.app.Data.Model.UserEntity;
 
@@ -33,8 +34,8 @@ public class Login extends AppCompatActivity {
         etpas = findViewById(R.id.etpass);
         login = findViewById(R.id.btlogin);
         session = new Session(this);
-        userDAO = Room.databaseBuilder(this, UserDatabase.class, "user.db").allowMainThreadQueries()
-                .build().userDAO();
+
+        userDAO = AppUser.db.userDAO();
 
         if(session.loggedin()){
             startActivity(new Intent(this,Home.class));

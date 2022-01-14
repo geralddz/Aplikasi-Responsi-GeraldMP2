@@ -19,187 +19,49 @@
             android:orientation="vertical"
             android:background="#CCD1E4">
 
+            <com.budiyev.android.codescanner.CodeScannerView
+                android:id="@+id/scanner_view"
+                android:layout_width="350dp"
+                android:layout_height="350dp"
+                android:layout_marginTop="60dp"
+                android:layout_gravity="center_horizontal"
+                app:autoFocusButtonVisible="true"
+                app:flashButtonVisible="true"
+                app:flashButtonColor="@color/white"
+                />
+
             <TextView
+                android:id="@+id/hasilscan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:text="FRAGMENT PAYMENT"
-                android:textColor="@color/black"
+                android:layout_marginTop="20dp"
                 android:layout_gravity="center_horizontal"
-                android:textSize="20sp"
-                android:textStyle="bold"/>
-
-            <LinearLayout
-                android:layout_gravity="center_horizontal"
-                android:layout_width="380dp"
-                android:layout_height="wrap_content"
-                android:background="#3F51B5">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:drawableTop="@drawable/pay"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginBottom="10dp"
-                    android:gravity="center"
-                    android:text="Pay"
-                    android:textColor="@color/white"
-                    android:textSize="20sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginLeft="70dp"
-                    android:layout_marginBottom="10dp"
-                    android:gravity="center"
-                    android:drawableTop="@drawable/history"
-                    android:text="History"
-                    android:textColor="@color/white"
-                    android:textSize="20sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginLeft="60dp"
-                    android:layout_marginBottom="10dp"
-                    android:gravity="center"
-                    android:drawableTop="@drawable/akun"
-                    android:text="Account"
-                    android:textColor="@color/white"
-                    android:textSize="20sp" />
-            </LinearLayout>
-            <TextView
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="30dp"
-                android:text="Your Recommendation"
+                android:text="Hasil Scan"
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold"/>
-            <GridLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
                 android:layout_gravity="center_horizontal"
-                android:layout_margin="10dp"
-                android:rowCount="10"
-                android:columnCount="2">
+                android:text="or input your code payment"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
 
-                <ImageView
-                    android:layout_width="00dp"
-                    android:layout_height="100dp"
-                    android:layout_margin="10dp"
-                    android:layout_columnWeight="1"
-                    android:layout_rowWeight="1"
-                    android:src="@drawable/termpayment"/>
+            <TextView
+                android:id="@+id/tvcode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center_horizontal"
+                android:text="here"
+                android:textColor="#3F51B5"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
 
-                <ImageView
-                    android:layout_width="00dp"
-                    android:layout_height="100dp"
-                    android:layout_margin="10dp"
-                    android:layout_columnWeight="1"
-                    android:layout_rowWeight="1"
-                    android:src="@drawable/termpayment"/>>
-                <ImageView
-                    android:layout_width="00dp"
-                    android:layout_height="100dp"
-                    android:layout_margin="10dp"
-                    android:layout_columnWeight="1"
-                    android:layout_rowWeight="1"
-                    android:src="@drawable/termpayment"/>
-                <ImageView
-                    android:layout_width="00dp"
-                    android:layout_height="100dp"
-                    android:layout_margin="10dp"
-                    android:layout_columnWeight="1"
-                    android:layout_rowWeight="1"
-                    android:src="@drawable/termpayment"/>
-
-                <ImageView
-                    android:layout_width="00dp"
-                    android:layout_height="100dp"
-                    android:layout_margin="10dp"
-                    android:layout_columnWeight="1"
-                    android:layout_rowWeight="1"
-                    android:src="@drawable/termpayment"/>
-
-                <ImageView
-                    android:layout_width="00dp"
-                    android:layout_height="100dp"
-                    android:layout_margin="10dp"
-                    android:layout_columnWeight="1"
-                    android:layout_rowWeight="1"
-                    android:src="@drawable/termpayment"/>
-
-                <ImageView
-                    android:layout_width="00dp"
-                    android:layout_height="100dp"
-                    android:layout_margin="10dp"
-                    android:layout_columnWeight="1"
-                    android:layout_rowWeight="1"
-                    android:src="@drawable/termpayment"/>
-
-                <ImageView
-                    android:layout_width="00dp"
-                    android:layout_height="100dp"
-                    android:layout_margin="10dp"
-                    android:layout_columnWeight="1"
-                    android:layout_rowWeight="1"
-                    android:src="@drawable/termpayment"/>
-
-                <ImageView
-                    android:layout_width="00dp"
-                    android:layout_height="100dp"
-                    android:layout_margin="10dp"
-                    android:layout_columnWeight="1"
-                    android:layout_rowWeight="1"
-                    android:src="@drawable/termpayment"/>
-
-                <ImageView
-                    android:layout_width="00dp"
-                    android:layout_height="100dp"
-                    android:layout_margin="10dp"
-                    android:layout_columnWeight="1"
-                    android:layout_rowWeight="1"
-                    android:src="@drawable/termpayment"/>
-
-                <ImageView
-                    android:layout_width="00dp"
-                    android:layout_height="100dp"
-                    android:layout_margin="10dp"
-                    android:layout_columnWeight="1"
-                    android:layout_rowWeight="1"
-                    android:src="@drawable/termpayment"/>
-
-                <ImageView
-                    android:layout_width="00dp"
-                    android:layout_height="100dp"
-                    android:layout_margin="10dp"
-                    android:layout_columnWeight="1"
-                    android:layout_rowWeight="1"
-                    android:src="@drawable/termpayment"/>
-
-                <ImageView
-                    android:layout_width="00dp"
-                    android:layout_height="100dp"
-                    android:layout_margin="10dp"
-                    android:layout_columnWeight="1"
-                    android:layout_rowWeight="1"
-                    android:src="@drawable/termpayment"/>
-
-                <ImageView
-                    android:layout_width="00dp"
-                    android:layout_height="100dp"
-                    android:layout_margin="10dp"
-                    android:layout_columnWeight="1"
-                    android:layout_rowWeight="1"
-                    android:src="@drawable/termpayment"/>
-
-            </GridLayout>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

@@ -1,13 +1,35 @@
 package com.paymu.app.Fragment;
 
+import android.Manifest;
+import android.app.Activity;
+
+import android.content.Intent;
+import android.content.pm.PackageManager;
+
+import android.os.Build;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
+
 import android.view.View;
 import android.view.ViewGroup;
 
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.budiyev.android.codescanner.CodeScanner;
+import com.budiyev.android.codescanner.CodeScannerView;
+
+import com.budiyev.android.codescanner.DecodeCallback;
+import com.google.zxing.Result;
+import com.paymu.app.Payment;
+import com.paymu.app.Profile;
 import com.paymu.app.R;
 
 /**
@@ -15,7 +37,11 @@ import com.paymu.app.R;
  * Use the {@link FragmentPayment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class FragmentPayment extends Fragment {
+public class FragmentPayment<BarcodeDetector> extends Fragment {
+    private static final int RC_PERMISSION = 10;
+    private boolean mPermissionGranted;
+    private CodeScanner mCodeScanner;
+    TextView code,hasil;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -60,7 +86,49 @@ public class FragmentPayment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_payment, container, false);
+        final Activity activity = getActivity();
+        View view = inflater.inflate(R.layout.fragment_payment, container, false);
+            code = view.findViewById(R.id.tvcode);
+            hasil = view.findViewById(R.id.hasilscan);
+            code.setOnClickListener(v -> {
+                startActivity(new Intent(getActivity(), Payment.class));
+            });
+        if(ContextCompat.checkSelfPermission(getContext(), Manifest.permission.CAMERA) == PackageManager.PERMISSION_DENIED){
+            ActivityCompat.requestPermissions(getActivity(),new String[]{Manifest.permission.CAMERA},100);
+        }
+            CodeScannerView scannerView = view.findViewById(R.id.scanner_view);
+            mCodeScanner = new CodeScanner(activity, scannerView);
+        mCodeScanner.setDecodeCallback(new DecodeCallback() {
+            @Override
+            public void onDecoded(@NonNull final Result result) {
+                activity.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(activity, result.getText(), Toast.LENGTH_SHORT).show();
+                        hasil.setText(result.getText());
+                    }
+                });
+            }
+        });
+        scannerView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mCodeScanner.startPreview();
+            }
+        });
+
+        return view ;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        mCodeScanner.startPreview();
+    }
+
+    @Override
+    public void onPause() {
+        mCodeScanner.releaseResources();
+        super.onPause();
     }
 }

@@ -17,6 +17,7 @@ import androidx.fragment.app.Fragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.paymu.app.Data.DAO.UserDAO;
 import com.paymu.app.Data.Database.AppUser;
+import com.paymu.app.Data.Model.UserEntity;
 import com.paymu.app.Fragment.FragmentHistory;
 import com.paymu.app.Fragment.FragmentHome;
 import com.paymu.app.Fragment.FragmentPayment;
@@ -44,12 +45,19 @@ public class Home extends AppCompatActivity {
             String name = getIntent().getStringExtra("name");
             tvnama.setText(name);
         }
-        userDAO = AppUser.db.userDAO();
+
         String name = getIntent().getStringExtra("name");
         tvnama.setText(name);
-        session.setLoggedin(true);
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new FragmentHome()).commit();
+        if(getIntent().getIntExtra("fragmentNumber",0)==1){
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new FragmentSetting()).commit();
+        }else if (getIntent().getIntExtra("fragmentNumber",0)==2){
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new FragmentPayment()).commit();
+        }
+        else {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new FragmentHome()).commit();
+        }
+
         bottomNavigationView.setOnItemSelectedListener(item -> {
             Fragment fragment = null;
             switch (item.getItemId()) {

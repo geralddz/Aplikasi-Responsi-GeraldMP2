@@ -1,14 +1,22 @@
 package com.paymu.app.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
+import com.paymu.app.Data.Model.DataTransaksi;
+import com.paymu.app.Profile;
 import com.paymu.app.R;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -16,6 +24,8 @@ import com.paymu.app.R;
  * create an instance of this fragment.
  */
 public class FragmentHome extends Fragment {
+
+    TextView pay, history, profil;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -60,7 +70,24 @@ public class FragmentHome extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        View view = inflater.inflate(R.layout.fragment_home, container, false);
+
+        pay = view.findViewById(R.id.tvpay);
+        history = view.findViewById(R.id.tvhistory);
+        profil = view.findViewById(R.id.tvakun);
+
+        pay.setOnClickListener(v -> {
+            getFragmentManager().beginTransaction().replace(R.id.fragment_container, new FragmentPayment()).commit();
+        });
+
+        history.setOnClickListener(v -> {
+            getFragmentManager().beginTransaction().replace(R.id.fragment_container, new FragmentHistory()).commit();
+        });
+
+        profil.setOnClickListener(v -> {
+            startActivity(new Intent(getActivity(), Profile.class));
+        });
+
+        return view;
     }
 }

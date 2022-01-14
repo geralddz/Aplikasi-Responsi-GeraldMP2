@@ -4,12 +4,18 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/FILE MI/Semester 3/Mobile Programming 2/Paymu/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2520833333333333" />
+        <entry key="..\:/FILE MI/Semester 3/Mobile Programming 2/Paymu/app/src/main/res/drawable/akun.xml" value="0.2484375" />
         <entry key="..\:/FILE MI/Semester 3/Mobile Programming 2/Paymu/app/src/main/res/drawable/bgedittext.xml" value="0.240625" />
         <entry key="..\:/FILE MI/Semester 3/Mobile Programming 2/Paymu/app/src/main/res/drawable/ic_baseline_account_circle_24.xml" value="0.23692307692307693" />
+        <entry key="..\:/FILE MI/Semester 3/Mobile Programming 2/Paymu/app/src/main/res/drawable/ic_baseline_account_circle_black.xml" value="0.2484375" />
+        <entry key="..\:/FILE MI/Semester 3/Mobile Programming 2/Paymu/app/src/main/res/drawable/ic_baseline_add_card_24.xml" value="0.2484375" />
         <entry key="..\:/FILE MI/Semester 3/Mobile Programming 2/Paymu/app/src/main/res/drawable/ic_baseline_arrow_back_24.xml" value="0.23692307692307693" />
+        <entry key="..\:/FILE MI/Semester 3/Mobile Programming 2/Paymu/app/src/main/res/drawable/ic_baseline_help_24.xml" value="0.2484375" />
         <entry key="..\:/FILE MI/Semester 3/Mobile Programming 2/Paymu/app/src/main/res/drawable/ic_baseline_history_24.xml" value="0.23692307692307693" />
+        <entry key="..\:/FILE MI/Semester 3/Mobile Programming 2/Paymu/app/src/main/res/drawable/ic_baseline_lock_24.xml" value="0.2484375" />
         <entry key="..\:/FILE MI/Semester 3/Mobile Programming 2/Paymu/app/src/main/res/drawable/ic_baseline_menu_24.xml" value="0.23692307692307693" />
         <entry key="..\:/FILE MI/Semester 3/Mobile Programming 2/Paymu/app/src/main/res/drawable/ic_baseline_payment_24.xml" value="0.23692307692307693" />
+        <entry key="..\:/FILE MI/Semester 3/Mobile Programming 2/Paymu/app/src/main/res/drawable/ic_baseline_save_24.xml" value="0.2484375" />
         <entry key="..\:/FILE MI/Semester 3/Mobile Programming 2/Paymu/app/src/main/res/drawable/ic_baseline_settings_24.xml" value="0.23692307692307693" />
         <entry key="..\:/FILE MI/Semester 3/Mobile Programming 2/Paymu/app/src/main/res/drawable/ic_baseline_stop_circle_24.xml" value="0.2520833333333333" />
         <entry key="..\:/FILE MI/Semester 3/Mobile Programming 2/Paymu/app/src/main/res/drawable/ic_launcher_background.xml" value="0.23692307692307693" />
@@ -17,14 +23,17 @@
         <entry key="..\:/FILE MI/Semester 3/Mobile Programming 2/Paymu/app/src/main/res/layout/activity_home.xml" value="0.2064814814814815" />
         <entry key="..\:/FILE MI/Semester 3/Mobile Programming 2/Paymu/app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="..\:/FILE MI/Semester 3/Mobile Programming 2/Paymu/app/src/main/res/layout/activity_main.xml" value="0.21041666666666667" />
+        <entry key="..\:/FILE MI/Semester 3/Mobile Programming 2/Paymu/app/src/main/res/layout/activity_payment.xml" value="0.23229166666666667" />
+        <entry key="..\:/FILE MI/Semester 3/Mobile Programming 2/Paymu/app/src/main/res/layout/activity_profile.xml" value="0.23229166666666667" />
         <entry key="..\:/FILE MI/Semester 3/Mobile Programming 2/Paymu/app/src/main/res/layout/activity_recovery.xml" value="0.22447916666666667" />
         <entry key="..\:/FILE MI/Semester 3/Mobile Programming 2/Paymu/app/src/main/res/layout/activity_registrasi.xml" value="0.22447916666666667" />
         <entry key="..\:/FILE MI/Semester 3/Mobile Programming 2/Paymu/app/src/main/res/layout/activity_splash_screen.xml" value="0.22" />
+        <entry key="..\:/FILE MI/Semester 3/Mobile Programming 2/Paymu/app/src/main/res/layout/display_transaksi.xml" value="0.2359375" />
         <entry key="..\:/FILE MI/Semester 3/Mobile Programming 2/Paymu/app/src/main/res/layout/fragment_history.xml" value="0.22447916666666667" />
         <entry key="..\:/FILE MI/Semester 3/Mobile Programming 2/Paymu/app/src/main/res/layout/fragment_home.xml" value="0.2359375" />
         <entry key="..\:/FILE MI/Semester 3/Mobile Programming 2/Paymu/app/src/main/res/layout/fragment_menuhome.xml" value="0.22447916666666667" />
         <entry key="..\:/FILE MI/Semester 3/Mobile Programming 2/Paymu/app/src/main/res/layout/fragment_payment.xml" value="0.22447916666666667" />
-        <entry key="..\:/FILE MI/Semester 3/Mobile Programming 2/Paymu/app/src/main/res/layout/fragment_setting.xml" value="0.22447916666666667" />
+        <entry key="..\:/FILE MI/Semester 3/Mobile Programming 2/Paymu/app/src/main/res/layout/fragment_setting.xml" value="0.2197140707298721" />
         <entry key="..\:/FILE MI/Semester 3/Mobile Programming 2/Paymu/app/src/main/res/layout/hometoolbar.xml" value="0.25" />
         <entry key="..\:/FILE MI/Semester 3/Mobile Programming 2/Paymu/app/src/main/res/layout/toolbar.xml" value="0.25" />
         <entry key="..\:/FILE MI/Semester 3/Mobile Programming 2/Paymu/app/src/main/res/layout/toolbarhome.xml" value="0.22447916666666667" />

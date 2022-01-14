@@ -19,23 +19,15 @@
             android:orientation="vertical"
             android:background="#CCD1E4">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:text="FRAGMENT HOME"
-                android:textColor="@color/black"
-                android:layout_gravity="center_horizontal"
-                android:textSize="20sp"
-                android:textStyle="bold"/>
-
         <LinearLayout
             android:layout_gravity="center_horizontal"
             android:layout_width="380dp"
+            android:layout_marginTop="50dp"
             android:layout_height="wrap_content"
             android:background="#3F51B5">
 
             <TextView
+                android:id="@+id/tvpay"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:drawableTop="@drawable/pay"
@@ -48,6 +40,7 @@
                 android:textSize="20sp" />
 
             <TextView
+                android:id="@+id/tvhistory"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -60,6 +53,7 @@
                 android:textSize="20sp" />
 
             <TextView
+                android:id="@+id/tvakun"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"

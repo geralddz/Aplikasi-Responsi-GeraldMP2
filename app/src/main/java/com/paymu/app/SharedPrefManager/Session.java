@@ -1,4 +1,4 @@
-package com.paymu.app;
+package com.paymu.app.SharedPrefManager;
 
 import android.content.Context;
 import android.content.SharedPreferences;

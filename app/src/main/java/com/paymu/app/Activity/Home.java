@@ -15,13 +15,12 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.paymu.app.Data.DAO.UserDAO;
 import com.paymu.app.Fragment.FragmentHistory;
 import com.paymu.app.Fragment.FragmentHome;
 import com.paymu.app.Fragment.FragmentPayment;
 import com.paymu.app.Fragment.FragmentSetting;
 import com.paymu.app.R;
-import com.paymu.app.Session;
+import com.paymu.app.SharedPrefManager.Session;
 
 public class Home extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
@@ -41,16 +40,8 @@ public class Home extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-        if(session.loggedin()){
-            String name = getIntent().getStringExtra("name");
-            tvnama.setText(name);
-        }
-
-        String name = getIntent().getStringExtra("name");
-        tvnama.setText(name);
-
         preferences = getSharedPreferences("User", 0);
-        tvnama.setText(preferences.getString("nama", ""));
+        tvnama.setText(preferences.getString("email", ""));
 
         if(getIntent().getIntExtra("fragmentNumber",0)==1){
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new FragmentSetting()).commit();

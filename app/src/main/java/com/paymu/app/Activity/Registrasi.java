@@ -3,6 +3,7 @@ package com.paymu.app.Activity;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.widget.Button;
@@ -15,7 +16,7 @@ import com.paymu.app.Data.DAO.UserDAO;
 import com.paymu.app.Data.Database.AppUser;
 import com.paymu.app.Data.Model.UserEntity;
 import com.paymu.app.R;
-import com.paymu.app.Session;
+import com.paymu.app.SharedPrefManager.Session;
 
 public class Registrasi extends AppCompatActivity {
     ImageView back;
@@ -23,6 +24,7 @@ public class Registrasi extends AppCompatActivity {
     EditText eteml, etpas, etcpas;
     Button btrgst;
     UserDAO userDAO;
+    SharedPreferences preferences;
     private Session session;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +38,7 @@ public class Registrasi extends AppCompatActivity {
         back = findViewById(R.id.back_icon);
         titel = findViewById(R.id.title);
         session = new Session(this);
-
+        preferences = getSharedPreferences("User", 0);
         userDAO = AppUser.db.userDAO();
 
         if(session.loggedin()){
@@ -53,9 +55,6 @@ public class Registrasi extends AppCompatActivity {
             String email = eteml.getText().toString().trim();
             String passw = etpas.getText().toString().trim();
             String konfirmasi = etcpas.getText().toString().trim();
-
-
-
             if (passw.length() == 0 && (konfirmasi.length() == 0)) {
                 etpas.setError("Password Tidak Boleh Kosong");
             }
@@ -67,9 +66,11 @@ public class Registrasi extends AppCompatActivity {
                 userDAO.Register(userEntity);
                 session.setLoggedin(true);
                 String name = userEntity.getEmail();
+                SharedPreferences.Editor editor = preferences.edit();
+                editor.putString("email", email);
+                editor.apply();
                 Toast.makeText(Registrasi.this, "Registrasi Berhasil", Toast.LENGTH_SHORT).show();
-                Intent i = new Intent(this, Home.class )
-                        .putExtra("name", name);
+                Intent i = new Intent(this, Home.class );
                 startActivity(i);;
             }
             else {

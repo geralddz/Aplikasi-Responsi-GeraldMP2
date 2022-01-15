@@ -1,6 +1,9 @@
 package com.paymu.app.Fragment;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -20,7 +23,8 @@ import com.paymu.app.R;
  */
 public class FragmentHome extends Fragment {
 
-    TextView pay, history, profil;
+    TextView pay, history, profil,user;
+    SharedPreferences preferences;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -67,6 +71,7 @@ public class FragmentHome extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
+        user = view.findViewById(R.id.tvuser);
         pay = view.findViewById(R.id.tvpay);
         history = view.findViewById(R.id.tvhistory);
         profil = view.findViewById(R.id.tvakun);
@@ -83,6 +88,9 @@ public class FragmentHome extends Fragment {
             startActivity(new Intent(getActivity(), Profile.class));
         });
 
+        final Activity activity = getActivity();
+        preferences = activity.getSharedPreferences("User", 0);
+        user.setText(preferences.getString("nama", ""));
         return view;
     }
 }

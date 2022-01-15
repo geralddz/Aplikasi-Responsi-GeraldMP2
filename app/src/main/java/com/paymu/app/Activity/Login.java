@@ -3,6 +3,7 @@ package com.paymu.app.Activity;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.widget.Button;
@@ -14,13 +15,14 @@ import com.paymu.app.Data.DAO.UserDAO;
 import com.paymu.app.Data.Database.AppUser;
 import com.paymu.app.Data.Model.UserEntity;
 import com.paymu.app.R;
-import com.paymu.app.Session;
+import com.paymu.app.SharedPrefManager.Session;
 
 public class Login extends AppCompatActivity {
     TextView tvreg, tvpas1;
     EditText etmail, etpas;
     Button login;
     UserDAO userDAO;
+    SharedPreferences preferences;
     private Session session;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +35,7 @@ public class Login extends AppCompatActivity {
         etpas = findViewById(R.id.etpass);
         login = findViewById(R.id.btlogin);
         session = new Session(this);
+        preferences = getSharedPreferences("User", 0);
 
         userDAO = AppUser.db.userDAO();
 
@@ -50,8 +53,10 @@ public class Login extends AppCompatActivity {
                session.setLoggedin(true);
                Toast.makeText(this, "Login Berhasil", Toast.LENGTH_SHORT).show();
                String name = userEntity.getEmail();
-               Intent i = new Intent(this, Home.class)
-                       .putExtra("name", name);
+               SharedPreferences.Editor editor = preferences.edit();
+               editor.putString("email", mail);
+               editor.apply();
+               Intent i = new Intent(this, Home.class);
                startActivity(i);
                finish();
            }else{

@@ -86,6 +86,9 @@ public class Home extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.logout1) {
             session.setLoggedin(false);
+            SharedPreferences.Editor editor = preferences.edit();
+            editor.clear();
+            editor.apply();
             finish();
             startActivity(new Intent(this,Login.class));
             Toast.makeText(this, "LOG-OUT Berhasil!!!", Toast.LENGTH_SHORT).show();

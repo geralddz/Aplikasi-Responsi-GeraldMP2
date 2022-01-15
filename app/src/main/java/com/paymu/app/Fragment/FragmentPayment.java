@@ -117,8 +117,11 @@ public class FragmentPayment<BarcodeDetector> extends Fragment {
             }
         });
 
-        preferences = activity.getSharedPreferences("User", 0);
+        preferences = activity.getSharedPreferences("code", 0);
         hasil.setText(preferences.getString("code", ""));
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.clear();
+        editor.apply();
 
         return view ;
     }

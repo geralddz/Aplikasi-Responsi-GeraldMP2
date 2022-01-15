@@ -50,6 +50,7 @@ public class Recovery extends AppCompatActivity {
             String mail = etmail.getText().toString().trim();
             UserEntity userEntity = userDAO.recovery(mail);
             if (userEntity != null && Patterns.EMAIL_ADDRESS.matcher(mail).matches()) {
+
                 NotificationCompat.Builder builder = new NotificationCompat.Builder(this,"Testing Notif");
                 builder.setContentTitle("Email telah terkirim");
                 builder.setContentText("Recovery sedang di proses :)");
@@ -59,8 +60,7 @@ public class Recovery extends AppCompatActivity {
                 NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
                 if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
                     int importance = NotificationManager.IMPORTANCE_HIGH;
-                    NotificationChannel notificationChannel = new
-                            NotificationChannel(channelnotif, "contoh channel", importance);
+                    NotificationChannel notificationChannel = new NotificationChannel(channelnotif, "contoh channel", importance);
                     notificationChannel.enableLights(true);
                     notificationChannel.setLightColor(Color.RED);
                     builder.setChannelId(channelnotif);

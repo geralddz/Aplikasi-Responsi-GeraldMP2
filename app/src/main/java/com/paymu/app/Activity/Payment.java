@@ -28,7 +28,7 @@ public class Payment extends AppCompatActivity {
         code = findViewById(R.id.etCode);
         pay = findViewById(R.id.btpay);
         titel.setText("Payment");
-        preferences = getSharedPreferences("User", 0);
+        preferences = getSharedPreferences("code", 0);
 
         back.setOnClickListener(v -> {
             Intent intent = new Intent(this,Home.class);
@@ -37,13 +37,16 @@ public class Payment extends AppCompatActivity {
         });
 
         pay.setOnClickListener(v -> {
-            String inputcode = code.getText().toString();
-            SharedPreferences.Editor editor = preferences.edit();
-            editor.putString("code", inputcode);
-            editor.apply();
+            sendCode();
             Intent intent = new Intent(this,Home.class);
             intent.putExtra("fragmentNumber",2);
             startActivity(intent);
         });
+    }
+    private void sendCode(){
+        String inputcode = code.getText().toString();
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("code", inputcode);
+        editor.apply();
     }
 }

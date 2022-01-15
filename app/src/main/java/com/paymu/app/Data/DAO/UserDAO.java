@@ -16,4 +16,7 @@ public interface UserDAO {
 
     @Query("SELECT * FROM UserEntity WHERE Email=(:mail)")
     UserEntity recovery(String mail);
+
+    @Query("SELECT * FROM UserEntity WHERE Email=(:mail)")
+    UserEntity profil(String mail);
 }

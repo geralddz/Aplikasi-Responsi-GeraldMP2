@@ -52,7 +52,6 @@ public class Login extends AppCompatActivity {
            if (userEntity != null && Patterns.EMAIL_ADDRESS.matcher(mail).matches()) {
                session.setLoggedin(true);
                Toast.makeText(this, "Login Berhasil", Toast.LENGTH_SHORT).show();
-               String name = userEntity.getEmail();
                SharedPreferences.Editor editor = preferences.edit();
                editor.putString("email", mail);
                editor.apply();

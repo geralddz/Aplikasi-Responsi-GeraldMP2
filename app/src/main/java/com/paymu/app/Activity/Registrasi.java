@@ -1,7 +1,6 @@
-package com.paymu.app;
+package com.paymu.app.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.room.Room;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,14 +10,12 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
 import com.paymu.app.Data.DAO.UserDAO;
 import com.paymu.app.Data.Database.AppUser;
-import com.paymu.app.Data.Database.UserDatabase;
 import com.paymu.app.Data.Model.UserEntity;
-
-import java.util.regex.Pattern;
+import com.paymu.app.R;
+import com.paymu.app.Session;
 
 public class Registrasi extends AppCompatActivity {
     ImageView back;

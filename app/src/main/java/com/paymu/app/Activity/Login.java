@@ -1,11 +1,9 @@
-package com.paymu.app;
+package com.paymu.app.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.room.Room;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.util.Patterns;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,8 +12,9 @@ import android.widget.Toast;
 
 import com.paymu.app.Data.DAO.UserDAO;
 import com.paymu.app.Data.Database.AppUser;
-import com.paymu.app.Data.Database.UserDatabase;
 import com.paymu.app.Data.Model.UserEntity;
+import com.paymu.app.R;
+import com.paymu.app.Session;
 
 public class Login extends AppCompatActivity {
     TextView tvreg, tvpas1;

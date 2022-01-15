@@ -4,9 +4,9 @@ import android.Manifest;
 import android.app.Activity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 
-import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -28,8 +28,7 @@ import com.budiyev.android.codescanner.CodeScannerView;
 
 import com.budiyev.android.codescanner.DecodeCallback;
 import com.google.zxing.Result;
-import com.paymu.app.Payment;
-import com.paymu.app.Profile;
+import com.paymu.app.Activity.Payment;
 import com.paymu.app.R;
 
 /**
@@ -42,6 +41,7 @@ public class FragmentPayment<BarcodeDetector> extends Fragment {
     private boolean mPermissionGranted;
     private CodeScanner mCodeScanner;
     TextView code,hasil;
+    SharedPreferences preferences;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -116,6 +116,9 @@ public class FragmentPayment<BarcodeDetector> extends Fragment {
                 mCodeScanner.startPreview();
             }
         });
+
+        preferences = activity.getSharedPreferences("User", 0);
+        hasil.setText(preferences.getString("code", ""));
 
         return view ;
     }

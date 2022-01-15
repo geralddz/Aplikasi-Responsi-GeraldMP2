@@ -1,4 +1,4 @@
-package com.paymu.app;
+package com.paymu.app.Activity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -16,19 +16,19 @@ import androidx.fragment.app.Fragment;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.paymu.app.Data.DAO.UserDAO;
-import com.paymu.app.Data.Database.AppUser;
-import com.paymu.app.Data.Model.UserEntity;
 import com.paymu.app.Fragment.FragmentHistory;
 import com.paymu.app.Fragment.FragmentHome;
 import com.paymu.app.Fragment.FragmentPayment;
 import com.paymu.app.Fragment.FragmentSetting;
+import com.paymu.app.R;
+import com.paymu.app.Session;
 
 public class Home extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
     Session session;
     Toolbar toolbar;
     TextView tvnama;
-    UserDAO userDAO;
+    SharedPreferences preferences;
     @SuppressLint("NonConstantResourceId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +48,9 @@ public class Home extends AppCompatActivity {
 
         String name = getIntent().getStringExtra("name");
         tvnama.setText(name);
+
+        preferences = getSharedPreferences("User", 0);
+        tvnama.setText(preferences.getString("nama", ""));
 
         if(getIntent().getIntExtra("fragmentNumber",0)==1){
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new FragmentSetting()).commit();
